@@ -4,3 +4,4 @@ void handbanque(Deck *deck, Joueur *banque, Joueur *joueur) {
     joueur->main_joueur.nombre_cartes = 0;
 }
 
+
