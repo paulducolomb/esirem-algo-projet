@@ -6,4 +6,5 @@ void distribuer_carte(Deck *deck, Main *main) {
     } else {
         printf("Le deck est vide, impossible de distribuer une carte.\n");
     }
+
 }
