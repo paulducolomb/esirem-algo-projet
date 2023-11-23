@@ -72,12 +72,28 @@ void handbanque(struct deck **deck, struct joueur *banque, struct joueur *joueur
     banque->cartes_en_main = NULL;
     joueur->cartes_en_main = NULL;
 }
-
 void afficher_main(struct joueur joueur) {
     struct deck* courant = joueur.cartes_en_main;
     printf("Main de cartes:\n");
     while (courant != NULL) {
-        printf("Couleur %d, Valeur %d\n", courant->Card.Couleur, courant->Card.valeur);
+        const char* nomCouleur;
+        switch (courant->Card.Couleur) {
+            case Heart:   nomCouleur = "Coeur"; break;
+            case Club:    nomCouleur = "Trefle"; break;
+            case Diamond: nomCouleur = "Carreau"; break;
+            case Spade:   nomCouleur = "Pique"; break;
+        }
+
+        const char* nomValeur;
+        switch (courant->Card.valeur) {
+            case 1:  nomValeur = "As"; break;
+            case 11: nomValeur = "Valet"; break;
+            case 12: nomValeur = "Dame"; break;
+            case 13: nomValeur = "Roi"; break;
+            default: nomValeur = (char[3]){ courant->Card.valeur + '0', '\0' }; break;
+        }
+
+        printf(" %s de %s\n",nomValeur,nomCouleur);
         courant = courant->next;
     }
 }
@@ -98,7 +114,7 @@ enum PlayerChoice traiter_saisie_utilisateur() {
     printf("Entrez votre choix (0: HIT, 1: STAND, 2: DOUBLE, 3: SURRENDER): \n");
     scanf("%d", &choix);
     while (choix < 0 || choix > 3) {
-        printf("Choix invalide, réessayez : \n");
+        printf("Choix invalide, reessayez : \n");
         scanf("%d", &choix);
     }
     return (enum PlayerChoice)choix;
