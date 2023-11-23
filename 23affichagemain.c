@@ -1,6 +1,8 @@
-void afficher_main(Main main) {
+void afficher_main(struct joueur joueur) {
+    struct deck* courant = joueur.cartes_en_main;
     printf("Main de cartes:\n");
-    for (int i = 0; i < main.nombre_cartes; i++) {
-        printf("Carte %d:  %d de %d, \n", i + 1, main.cartes[i].valeur, main.cartes[i].couleur);
+    while (courant != NULL) {
+        printf("Couleur %d, Valeur %d\n", courant->Card.Couleur, courant->Card.valeur);
+        courant = courant->next;
     }
 }
