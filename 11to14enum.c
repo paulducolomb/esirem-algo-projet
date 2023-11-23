@@ -1,5 +1,5 @@
 
-enum couleur {Diamond,Club,Heart,Spade} ;
+enum couleur {Heart,Club,Diamond,Spade} ;
 
 struct cartes
 {
@@ -8,12 +8,15 @@ struct cartes
 };
 struct deck
 {
-    struct *carte Card;
+
+    struct cartes Card;
+    struct deck* next;
+
 
 };
 struct joueur
 {
-    struct deck cartes_en_main;
+    struct deck* cartes_en_main;
     int valeur;
 
 };
