@@ -119,7 +119,19 @@ enum PlayerChoice traiter_saisie_utilisateur() {
     }
     return (enum PlayerChoice)choix;
 }
-
+int calculer_valeur_main(struct joueur joueur) {
+    int valeur_totale = 0;
+    struct deck* courant = joueur.cartes_en_main;
+    while (courant != NULL) {
+        int valeur_carte = courant->Card.valeur;
+        if (valeur_carte > 10) {
+            valeur_carte = 10;
+        }
+        valeur_totale += valeur_carte;
+        courant = courant->next;
+    }
+    return valeur_totale;
+}
 
 int main(void) {
     struct deck *deck = NULL;
@@ -133,9 +145,12 @@ int main(void) {
 
     printf("\nMain de la banque apres distribution:\n");
     afficher_main(banque);
+    int valeur_main_banque = calculer_valeur_main(banque);
+    printf("Valeur totale de la main de la banque : %d\n", valeur_main_banque);
     printf("\nMain du joueur apres distribution:\n");
     afficher_main(joueur);
-
+    int valeur_main_joueur = calculer_valeur_main(joueur);
+    printf("Valeur totale de la main du joueur : %d\n", valeur_main_joueur);
     enum PlayerChoice choix_joueur = traiter_saisie_utilisateur();
     printf("Le joueur a choisi : %d\n", choix_joueur);
 
