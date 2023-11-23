@@ -1,10 +1,10 @@
-void distribuer_carte(Deck *deck, Main *main) {
-    if (deck->nombre_cartes > 0) {
-        main->cartes[main->nombre_cartes] = deck->cartes[deck->nombre_cartes - 1];
-        main->nombre_cartes++;
-        deck->nombre_cartes--;
+void distribuer_carte(struct deck **deck, struct joueur *joueur) {
+    if (*deck != NULL) {
+        struct deck *carteDistribuee = *deck;
+        *deck = (*deck)->next;
+        carteDistribuee->next = joueur->cartes_en_main;
+        joueur->cartes_en_main = carteDistribuee;
     } else {
         printf("Le deck est vide, impossible de distribuer une carte.\n");
     }
-
 }
