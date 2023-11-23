@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 enum couleur {Heart,Club,Diamond,Spade} ;
 
@@ -11,7 +14,6 @@ struct deck
 
     struct cartes Card;
     struct deck* next;
-
 
 };
 struct joueur

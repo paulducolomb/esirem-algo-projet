@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 void distribuer_carte(struct deck **deck, struct joueur *joueur) {
     if (*deck != NULL) {
         struct deck *carteDistribuee = *deck;
