@@ -23,4 +23,5 @@ void afficher_main(struct joueur joueur) {
         printf("%s de %s\n",nomValeur,nomCouleur);
         courant = courant->next;
     }
+
 }
