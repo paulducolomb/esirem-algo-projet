@@ -3,7 +3,7 @@ int calculer_valeur_main(struct joueur joueur) {
     struct deck* courant = joueur.cartes_en_main;
     while (courant != NULL) {
         int valeur_carte = courant->Card.valeur;
-        if (valeur_carte > 10) { // Pour les figures (Valet, Dame, Roi)
+        if (valeur_carte > 10) {
             valeur_carte = 10;
         }
         valeur_totale += valeur_carte;
