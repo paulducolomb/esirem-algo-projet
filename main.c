@@ -161,6 +161,5 @@ int main(void) {
         deck = deck->next;
         free(tmp);
     }
-
     return 0;
 }
