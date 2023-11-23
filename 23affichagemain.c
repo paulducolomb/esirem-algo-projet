@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 void afficher_main(struct joueur joueur) {
     struct deck* courant = joueur.cartes_en_main;
     printf("Main de cartes:\n");
