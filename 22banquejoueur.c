@@ -1,7 +1,7 @@
-void handbanque(Deck *deck, Joueur *banque, Joueur *joueur) {
-    initialiser_deck(deck); // 2.1
-    banque->main_joueur.nombre_cartes = 0;
-    joueur->main_joueur.nombre_cartes = 0;
+void handbanque(Deck *deck, struct joueur *banque, struct joueur *joueur) {
+    initialiser_deck(deck);
+    banque->cartes_en_main = NULL;
+    joueur->cartes_en_main = NULL;
 }
 
 
