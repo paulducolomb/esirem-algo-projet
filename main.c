@@ -123,7 +123,6 @@ int main(void) {
     enum PlayerChoice choix_joueur = traiter_saisie_utilisateur();
     printf("Le joueur a choisi : %d\n", choix_joueur);
 
-    // Ici, vous pouvez ajouter la logique du jeu en fonction du choix du joueur
 
     // Libération de la mémoire
     while (deck != NULL) {
