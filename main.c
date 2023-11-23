@@ -162,7 +162,7 @@ int main(void) {
         afficher_main(joueur);
     }
     if (choix_joueur=1){
-        //sortie
+        //
     }
     if (choix_joueur=2){
         distribuer_carte(&deck, &joueur);
