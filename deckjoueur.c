@@ -10,7 +10,7 @@ void initialiser_deck(ListeCartes *deck) {
     int index = 0;
     // Boucles pour assigner chaque valeur de carte (de 1 à 13) à chaque couleur de carte (4 couleurs)
     for (int val = 1; val <= 13; val++) {
-        for (int coul = COEUR; coul <= PIQUE; coul++) {
+        for (int coul = Diamond; coul <= Spade; coul++) {
             deck->cartes[index].valeur = Valeur; // Assignation de la valeur de la carte
             deck->cartes[index].couleur = Couleur; // Assignation de la couleur de la carte
             index++;
@@ -31,13 +31,4 @@ void melanger_deck(ListeCartes *deck) {
         deck->cartes[i] = deck->cartes[j];
         deck->cartes[j] = temp;
     }
-}
-
-// Fonction principale main
-int main() {
-    ListeCartes deck; // Déclaration d'une variable de type ListeCartes pour le deck
-    initialiser_deck(&deck); // Initialiser le deck
-    melanger_deck(&deck); // Mélanger le deck
-    free(deck.cartes); // Libération de la mémoire allouée pour le tableau de cartes du deck
-    return 0; 
 }
