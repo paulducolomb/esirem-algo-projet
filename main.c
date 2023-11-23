@@ -104,6 +104,7 @@ enum PlayerChoice traiter_saisie_utilisateur() {
     return (enum PlayerChoice)choix;
 }
 
+
 int main(void) {
     struct deck *deck = NULL;
     struct joueur banque, joueur;
