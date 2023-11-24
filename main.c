@@ -72,7 +72,6 @@ void handbanque(struct deck **deck, struct joueur *banque, struct joueur *joueur
     banque->cartes_en_main = NULL;
     joueur->cartes_en_main = NULL;
 }
-
 void afficher_main(struct joueur joueur) {
     struct deck* courant = joueur.cartes_en_main;
     while (courant != NULL) {
@@ -83,13 +82,14 @@ void afficher_main(struct joueur joueur) {
             case Diamond: nomCouleur = "Carreau"; break;
             case Spade:   nomCouleur = "Pique"; break;
         }
+
         const char* nomValeur;
         switch (courant->Card.valeur) {
             case 1:  nomValeur = "As"; break;
             case 11: nomValeur = "Valet"; break;
             case 12: nomValeur = "Dame"; break;
             case 13: nomValeur = "Roi"; break;
-            default: nomValeur = courant->Card.valeur; break;
+            default: nomValeur = (char[3]){ courant->Card.valeur + '0', '\0' }; break;
         }
         printf("%s de %s\n",nomValeur,nomCouleur);
         courant = courant->next;
@@ -132,13 +132,8 @@ int calculer_valeur_main(struct joueur joueur) {
 }
 
 int main(void) {
-
-
     struct deck *deck = NULL;
     struct joueur banque, joueur;
-    int mise=10;
-    int newmise;
-
 
     handbanque(&deck, &banque, &joueur);
     melanger_deck(&deck);
@@ -155,21 +150,6 @@ int main(void) {
     printf("Valeur du joueur : %d\n", valeur_main_joueur);
     enum PlayerChoice choix_joueur = traiter_saisie_utilisateur();
     printf("Le joueur a choisi : %d\n", choix_joueur);
-
-
-
-    if (choix_joueur==0){
-        afficher_main(joueur);
-    }
-    if (choix_joueur=1){
-        //
-    }
-    if (choix_joueur=2){
-        distribuer_carte(&deck, &joueur);
-        afficher_main(joueur);
-        calculer_valeur_main(joueur);
-        newmise=2*mise;
-    }
 
 
     // Libération de la mémoire
