@@ -134,6 +134,9 @@ int calculer_valeur_main(struct joueur joueur) {
 int main(void) {
     struct deck *deck = NULL;
     struct joueur banque, joueur;
+    int mise=10;
+    int newmise;
+
 
     handbanque(&deck, &banque, &joueur);
     melanger_deck(&deck);
