@@ -151,7 +151,18 @@ int main(void) {
     enum PlayerChoice choix_joueur = traiter_saisie_utilisateur();
     printf("Le joueur a choisi : %d\n", choix_joueur);
 
-
+   if (choix_joueur==0){
+        afficher_main(joueur);
+    }
+    if (choix_joueur=1){
+        //
+    }
+    if (choix_joueur=2){
+        distribuer_carte(&deck, &joueur);
+        afficher_main(joueur);
+        calculer_valeur_main(joueur);
+        newmise=2*mise;
+    }
     // Libération de la mémoire
     while (deck != NULL) {
         struct deck *tmp = deck;
