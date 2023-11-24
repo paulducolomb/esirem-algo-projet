@@ -172,6 +172,7 @@ int main(void) {
     }
 
 
+
     // Libération de la mémoire
     while (deck != NULL) {
         struct deck *tmp = deck;
